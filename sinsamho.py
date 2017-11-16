@@ -1,5 +1,5 @@
 """
-신삼호 62평과 반래퍼 35평 비교
+신삼호 62평과 35평 비교
 """
 import realty as r
 import pylab as plt
@@ -15,9 +15,6 @@ matplotlib.rc('font', family=font_name) #font 설정
 data1 = [[], []]
 data1_1 = [[], []]
 data2 = [[], []]
-data2_1 = [[], []]
-data2_2 = [[], []]
-data2_3 = [[], []]
 for i in range(2006, 2018):
     for j in range(1, 13):
         ym=str(i)
@@ -27,21 +24,14 @@ for i in range(2006, 2018):
             ym=ym+str(j)
         seocho=r.getaptdata(11650, ym)
         data1=r.x_y_data(seocho, "방배신삼호", 185.46, data1)
-        data1_1=r.x_y_data(seocho, "래미안퍼스티지", 135.92, data1_1)
-        data2=r.x_y_data(seocho, "래미안퍼스티지", 84.93, data2)
-        data2_1=r.x_y_data(seocho, "래미안퍼스티지", 117.12, data2_1)
-        data2_2=r.x_y_data(seocho, "래미안퍼스티지", 169.31, data2_2)
-        data2_3=r.x_y_data(seocho, "래미안퍼스티지", 198.22, data2_3)
+        data1_1=r.x_y_data(seocho, "방배신삼호", 105.04, data1_1)
+        data2=r.x_y_data(seocho, "방배신삼호", 164.97, data2)
 
 plt.plot(data1[0], data1[1], label="방배신삼호62평")
-plt.plot(data1_1[0], data1_1[1], label="반래퍼52평")
-plt.plot(data2[0], data2[1], label="반래퍼35평")
-plt.plot(data2_1[0], data2_1[1], label="반래퍼45평")
-plt.plot(data2_2[0], data2_2[1], label="반래퍼62평")
-plt.plot(data2_3[0], data2_3[1], label="반래퍼72평")
-
+plt.plot(data2[0], data2[1], label="방배신삼호55평")
+plt.plot(data1_1[0], data1_1[1], label="방배신삼호35평")
 plt.legend(loc='upper left')
-plt.title('방배신삼호62평 vs 반래퍼')
+plt.title('방배신삼호62평 vs 55평 vs 35평')
 plt.xlabel('거래년월') #x축 레이블 설정
 plt.ylabel('거래금액') #y축 레이블 설정
 
